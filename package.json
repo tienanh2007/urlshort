@@ -1,0 +1,25 @@
+{
+  "name": "urlshort",
+  "version": "1.0.0",
+  "description": "shorten your url",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tienanh2007/urlshort.git"
+  },
+  "keywords": [
+    "url"
+  ],
+  "author": "Tien Anh Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tienanh2007/urlshort/issues"
+  },
+  "homepage": "https://github.com/tienanh2007/urlshort#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
