@@ -15,12 +15,20 @@ var state = {
   docs: null
 }
 var temp = null
-app.get('/:url',function(req,res){
+app.get('/http:\//:url',function(req,res){
   temp = state.docs.filter(function(doc){
     return doc.name == req.params.url
   })
   var thing = {name:req.params.url,tasty: true}
   if(temp.length == 0){
+    var regex = /^([a-zA-Z0-9]+).([a-zA-Z0-9]+)\//
+    var original = req.params.url.match(regex)[1]+req.params.url.match(regex)[2]
+    var shortUrl = original.split("").map(function(e){
+      return e.charCodeAt(0)+""
+    }).reduce(function(a,b){
+      return a+b
+    })
+    thing.tasty = shortUrl
     MongoClient.connect(url, function (err, db) {
       if (err) throw err
       var collection = db.collection("foods")
